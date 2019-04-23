@@ -20,8 +20,19 @@ import org.apache.poi.xslf.usermodel.XSLFSlide;
 import org.apache.poi.xslf.usermodel.XSLFTextShape;
 
 public class pptxScale {
-    public static void main(String[] args) throws IOException {
-    	String filename = pptxScale.class.getResource("001w.ppt").getFile();
+	public static void main(String[] args) throws IOException {
+		File folder = new File("C:/TEMP/church/worship/16lh9");
+		File[] listOfFiles = folder.listFiles();
+
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+				System.out.println(listOfFiles[i].getAbsolutePath());
+				convert(listOfFiles[i].getAbsolutePath());
+			} 
+		}
+	}
+	
+    public static void convert(String filename) throws IOException {
     	XMLSlideShow ppt = new XMLSlideShow(new FileInputStream(filename));
     	
     	double sourcePageWidth = ppt.getPageSize().getWidth();
@@ -72,7 +83,7 @@ public class pptxScale {
 	        }
 	    }
         
-        FileOutputStream out = new FileOutputStream(new File(filename + "_"));
+        FileOutputStream out = new FileOutputStream(new File(filename));
         ppt.write(out);
         
         out.close();		

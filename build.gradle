@@ -48,10 +48,18 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
-    compile "org.apache.poi:poi:3.17"
+    //compile "org.apache.poi:poi:3.17"
     // for pptx
-    compile "org.apache.poi:poi-ooxml:3.17"
+    //compile "org.apache.poi:poi-ooxml:3.17"
     // for ppt
-    compile "org.apache.poi:poi-scratchpad:3.17"
+    //compile "org.apache.poi:poi-scratchpad:3.17"
+    
+    compile "org.apache.poi:poi:4.0.1"
+    // for pptx
+    compile "org.apache.poi:poi-ooxml:4.0.1"
+    // for ppt
+    compile "org.apache.poi:poi-scratchpad:4.0.1"
 }
+
+
 

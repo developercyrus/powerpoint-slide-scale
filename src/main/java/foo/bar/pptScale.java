@@ -20,8 +20,21 @@ import org.apache.poi.hslf.usermodel.HSLFTextBox;
  */
 
 public class pptScale {
+	
 	public static void main(String[] args) throws IOException {
-		String filename = pptxScale.class.getResource("001p.ppt").getFile();
+		File folder = new File("C:/TEMP/church/peace/16lh9");
+		File[] listOfFiles = folder.listFiles();
+
+		for (int i = 0; i < listOfFiles.length; i++) {
+			if (listOfFiles[i].isFile()) {
+				System.out.println(listOfFiles[i].getAbsolutePath());
+				convert(listOfFiles[i].getAbsolutePath());
+			} 
+		}
+	}
+	
+	
+	public static void convert(String filename) throws IOException {
 		HSLFSlideShow ppt = new HSLFSlideShow(new HSLFSlideShowImpl(filename));
 		
 		double sourcePageWidth = ppt.getPageSize().getWidth();
@@ -88,7 +101,7 @@ public class pptScale {
 	        }
 	    }
 		
-		FileOutputStream out = new FileOutputStream(new File(filename + "_"));
+		FileOutputStream out = new FileOutputStream(new File(filename));
         ppt.write(out);
         
         out.close();		
